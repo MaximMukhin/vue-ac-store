@@ -27,5 +27,17 @@ export default {
 
 
 <style>
+.cart-total {
+position: fixed;
+bottom: 0;
+right: 0;
+left: 0;
+padding: 10px;
+display: flex;
+justify-content: center;
+background: rgb(105, 173, 105);
+color: #ffffff;
+}
+
 
 </style>
