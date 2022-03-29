@@ -3,10 +3,11 @@
       <p>Catalog</p>
       <div class="catalog__list">
          <CatalogItem
-         v-for="product in products"
+         v-for="product in PRODUCTS"
          :key="product.article"
          :productData="product"
-         @articleChild="articleChild"
+         @articleChild="articleParent"
+         @addToCart="addToCart"
          ></CatalogItem>
       </div>
 
@@ -15,6 +16,7 @@
 
 <script>
 import CatalogItem from './CatalogItem.vue'
+import {mapActions, mapGetters} from 'vuex'
 
 export default {
    name: 'Catalog',
@@ -24,7 +26,7 @@ export default {
    props:{},
    data() { 
       return {
-         products: [
+/*          products: [
       {
          image: "Bella-T01-90.jpg",
          name: "Bella-T01-90",
@@ -73,16 +75,35 @@ export default {
          available: true,
          color: "Красный глянец"
       }
-         ]
+         ] */
       }
    },
    methods: {
-      articleChild(data) {
+      ...mapActions([
+      'GET_PRODUCTS_FROM_API',
+      'ADD_TO_CART',
+      ]),
+
+      addToCart(data) {
+         this.ADD_TO_CART(data)
+      },
+
+      articleParent(data) {
        console.log(data);
-      }
+      },
    },
-   computed: {},
+   computed: {
+         ...mapGetters([
+         'PRODUCTS',
+         'CART',
+      ]),
+   },
    watch: {},
+
+   mounted() {
+      console.log('mounted axios PRODUCTS');
+      this.GET_PRODUCTS_FROM_API()
+   },
 
 }
 </script>

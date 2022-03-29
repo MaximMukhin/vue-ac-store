@@ -4,7 +4,9 @@
       <hr>
       <Catalog></Catalog>
       <hr>
-      <Cart></Cart>
+      <Cart v-if="CART.length !== 0"
+      :cartData="CART"
+      ></Cart>
    </div>
 </template>
 
@@ -12,6 +14,7 @@
 <script>
 import Catalog from '../components/Catalog.vue'
 import Cart from '../components/Cart.vue'
+import{mapGetters} from 'vuex'
 
 export default {
    name: 'Main',
@@ -26,7 +29,11 @@ export default {
       }
    },
    methods: {},
-   computed: {},
+   computed: {
+      ...mapGetters([
+         'CART'
+      ])
+   },
    watch: {},
    mounted() {
       

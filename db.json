@@ -6,7 +6,8 @@
          "article": "Bella-T01-90",
          "price": 42000,
          "available": true,
-         "color": "Белый глянец"
+         "color": "Белый глянец",
+         "quantity": 0
       },
       {
          "image": "Natali-T01-90.jpg",
@@ -14,7 +15,8 @@
          "article": "Natali-T01-90",
          "price": 40000,
          "available": true,
-         "color": "Белый глянец"
+         "color": "Белый глянец",
+         "quantity": 0
       },
       {
          "image": "Sofia-T01-90.jpg",
@@ -22,7 +24,8 @@
          "article": "Sofia-T01-90",
          "price": 38000,
          "available": false,
-         "color": "Белый глянец"
+         "color": "Белый глянец",
+         "quantity": 0
       },
       {
          "image": "Bella-T01-100.jpg",
@@ -30,7 +33,8 @@
          "article": "Bella-T01-100",
          "price": 52000,
          "available": true,
-         "color": "Красный глянец"
+         "color": "Красный глянец",
+         "quantity": 0
       },
       {
          "image": "Natali-T01-100.jpg",
@@ -38,7 +42,8 @@
          "article": "Natali-T01-100",
          "price": 50000,
          "available": false,
-         "color": "Красный глянец"
+         "color": "Красный глянец",
+         "quantity": 0
       },
       {
          "image": "Sofia-T01-100.jpg",
@@ -46,7 +51,8 @@
          "article": "Sofia-T01-100",
          "price": 48000,
          "available": true,
-         "color": "Красный глянец"
+         "color": "Красный глянец",
+         "quantity": 0
       }
       
       ]

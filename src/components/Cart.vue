@@ -13,7 +13,14 @@ export default {
    components: {
       CartItem
    },
-   props:{},
+   props:{
+            cartData: {
+         tipe: Array,
+         default() {
+            return []
+         }
+      }
+   },
       data() { 
       return {}
    },
