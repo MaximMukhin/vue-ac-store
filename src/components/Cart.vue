@@ -1,12 +1,29 @@
 <template>
    <div class="cart">
-      <p>Cart</p>
-      <CartItem></CartItem>
+      <router-link :to="{name: 'Catalog'}">
+         <div class="catalog__link-to-cart">Вернуться в каталог</div>
+      </router-link>
+
+      <p v-if="!CART.length">Корзина пуста</p>
+      <CartItem
+         v-for="(item, index) in CART"
+         :key="item.article"
+         :cartItemData="item"
+         @deleteFromCartItem="deleteFromCartItem(index)"
+         @increment="increment(index)"
+         @decrement="decrement(index)"
+      ></CartItem>
+
+         <div class="cart-total">
+         <p class="cart-total__name">Сумма:</p>
+         <p class="cart-total__sum">{{cartTotalCost}} руб</p>
+      </div>
    </div>
 </template>
 
 <script>
 import CartItem from './CartItem.vue'
+import{mapActions, mapGetters} from 'vuex'
 
 export default {
    name: 'Cart',
@@ -14,18 +31,55 @@ export default {
       CartItem
    },
    props:{
-            cartData: {
+/*       cartData: {
          tipe: Array,
          default() {
-            return []
+         return []
          }
-      }
+      } */
    },
       data() { 
       return {}
    },
-   methods: {},
-   computed: {},
+   methods: {
+            ...mapActions([
+         'DELETE_FROM_CART',
+         'DECREMENT_CART_ITEM',
+         'INCREMENT_CART_ITEM',
+      ]),
+      deleteFromCartItem(index){
+         this.DELETE_FROM_CART(index)
+      },
+      decrement(index) {
+         this.DECREMENT_CART_ITEM(index)
+      },
+      increment(index) {
+         this.INCREMENT_CART_ITEM(index)
+      },
+   },
+   computed: {
+      ...mapGetters([
+         'PRODUCTS',
+         'CART',
+      ]),
+
+      cartTotalCost() {
+         let result = []
+
+         if (this.CART.length) {
+            for (let item of this.CART) {
+            result.push(item.price * item.quantity)
+         }
+         result = result.reduce(function(sum, el) {
+            return sum + el;
+         })
+         return result
+         } else {
+            return 0;
+         }
+
+      }
+   },
    watch: {},
 
 }

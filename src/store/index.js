@@ -42,6 +42,9 @@ export default createStore({
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products;
+      for (let i = 0; i < state.products.length; i++) {
+        state.products[i].quantity = 1
+      }
     },
 
     SET_CART: (state, product) => {
@@ -55,9 +58,11 @@ export default createStore({
         })
         if (!isProductExists) {
           state.cart.push(product)
+
         }
       } else {
         state.cart.push(product)
+
       }
     },
 

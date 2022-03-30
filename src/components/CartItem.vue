@@ -1,6 +1,22 @@
 <template>
    <div class="cart-item">
-      <p>CartItem</p>
+          <img class="catalog-item__image" :src=" require('@/assets/images/' + cartItemData.image)" alt="img">
+               <div class="cart-item__info">
+        <p>{{cartItemData.name}}</p>
+        <p>Артикул: {{cartItemData.article}}</p>
+        <p>Цвет: {{cartItemData.color}}</p>
+        <p>Цена: {{cartItemData.price}} руб</p>
+        <p>Всего: {{sumCartItem}} руб</p>
+     </div>
+     <div class="cart-item__quantity">
+        <p>Количество</p>
+        <span>
+           <span class="quantity__btn" @click="decrementItem">-</span>
+           {{cartItemData.quantity}}
+           <span class="quantity__btn" @click="incrementItem">+</span>
+           </span>
+        </div>
+     <button class="cart-item__delete-btn" @click="deleteFromCartItem">Удалить</button>
    </div>
 </template>
 
@@ -8,12 +24,33 @@
 export default {
    name: 'CartItem',
    components: {},
-   props:{},
+   props:{
+       cartItemData: {
+         type: Object,
+         default() {
+            return {}
+         }
+      }
+   },
    data() { 
       return {}
    },
-   methods: {},
-   computed: {},
+   methods: {
+      deleteFromCartItem() {
+         this.$emit('deleteFromCartItem')
+      },
+      decrementItem() {
+         this.$emit('decrement')
+      },
+      incrementItem() {
+         this.$emit('increment')
+      },
+   },
+   computed: {
+      sumCartItem() {
+         return this.cartItemData.price * this.cartItemData.quantity
+      },
+   },
    watch: {},
 
 }

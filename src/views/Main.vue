@@ -1,26 +1,28 @@
 <template>
    <div class="main">
       <p>Main ac-store</p>
+      <router-view></router-view>
       <hr>
-      <Catalog></Catalog>
+<!--       <Catalog></Catalog> -->
       <hr>
-      <Cart v-if="CART.length !== 0"
+
+<!--       <Cart v-if="CART.length !== 0"
       :cartData="CART"
-      ></Cart>
+      ></Cart> -->
    </div>
 </template>
 
 
 <script>
-import Catalog from '../components/Catalog.vue'
-import Cart from '../components/Cart.vue'
+/* import Catalog from '../components/Catalog.vue'
+import Cart from '../components/Cart.vue' */
 import{mapGetters} from 'vuex'
 
 export default {
    name: 'Main',
    components: {
-      Catalog,
-      Cart, 
+/*       Catalog,
+      Cart,  */
    },
    props:{},
    data() { 
