@@ -4,6 +4,13 @@
             <router-link :to="{name: 'Cart'}">
          <div class="catalog__link-to-cart">Корзина: {{CART.length}}</div>
       </router-link>
+
+<!--       <SelectFilter
+      :selected="selected"
+      :options="colors"
+      @select="sortByColors"
+      /> -->
+
       <div class="catalog__list">
          <CatalogItem
          v-for="product in PRODUCTS"
@@ -17,13 +24,15 @@
 </template>
 
 <script>
+/* import SelectFilter from './SelectFilter.vue' */
 import CatalogItem from './CatalogItem.vue'
 import {mapActions, mapGetters} from 'vuex'
 
 export default {
    name: 'Catalog',
    components: {
-      CatalogItem
+      CatalogItem,
+/*       SelectFilter, */
    },
    props:{},
    data() { 
