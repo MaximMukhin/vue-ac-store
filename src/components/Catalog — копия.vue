@@ -5,15 +5,15 @@
          <div class="catalog__link-to-cart">Корзина: {{CART.length}}</div>
       </router-link>
 
-      <SelectFilter
+<!--       <SelectFilter
       :selected="selected"
       :options="colors"
       @select="sortByColors"
-      />
+      /> -->
 
       <div class="catalog__list">
          <CatalogItem
-         v-for="product in filteredProduct"
+         v-for="product in PRODUCTS"
          :key="product.article"
          :productData="product"
          @articleChild="articleParent"
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import SelectFilter from './SelectFilter.vue'
+/* import SelectFilter from './SelectFilter.vue' */
 import CatalogItem from './CatalogItem.vue'
 import {mapActions, mapGetters} from 'vuex'
 
@@ -32,18 +32,12 @@ export default {
    name: 'Catalog',
    components: {
       CatalogItem,
-       SelectFilter,
+/*       SelectFilter, */
    },
    props:{},
    data() { 
       return {
-         colors: [
-            {name: 'Все', value: 'colorAll'},
-            {name: 'Белый глянец', value: 'colorWhide'},
-            {name: 'Красный глянец', value: 'colorRed'},
-         ],
-         selected: 'Все',
-         sortedProducts: [],
+
       }
    },
    methods: {
@@ -59,32 +53,12 @@ export default {
       articleParent(data) {
        console.log(data);
       },
-
-      sortByColors(color) {
-         this.sortedProducts = []
-
-         this.PRODUCTS.map(item => {
-            if (item.color === color.name) {
-               this.sortedProducts.push(item)
-            }
-         }),
-         this.selected = color.name
-      }
-      
    },
    computed: {
          ...mapGetters([
          'PRODUCTS',
          'CART',
       ]),
-
-      filteredProduct() {
-         if (this.sortedProducts.length) {
-            return this.sortedProducts
-         } else {
-            return this.PRODUCTS
-         }
-      },
    },
    watch: {},
 
