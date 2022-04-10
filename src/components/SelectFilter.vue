@@ -70,6 +70,8 @@
     cursor: pointer;
     text-align: left;
     bottom: 10px;
+    margin-left: 10px;
+
 }
 
 .select-filter p {
@@ -79,6 +81,7 @@
 .select-filter__title {
     border: solid 1px #aeaeae;
     padding: 8px;
+    border-radius: 4px;
 }
 
 .select-filter__option {
@@ -89,6 +92,7 @@
     left: 0;
     width: 100%;
     padding: 8px;
+    border-radius: 4px;
 }
 
 .select-filter__option p:hover {

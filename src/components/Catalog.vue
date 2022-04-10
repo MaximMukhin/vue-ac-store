@@ -117,10 +117,11 @@ h1 {
    font-size: 12px;
    font-weight: 600;
    position: absolute;
-   top: 20px;
-   right: 20px;
+   top: 8px;
+   right: 8px;
    padding: 14px;
    border: solid #aeaeae;
-   border-radius: 10px;
+   border-radius: 5px;
 }
+
 </style>

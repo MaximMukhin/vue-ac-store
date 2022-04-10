@@ -45,11 +45,13 @@ export default {
 <style>
 .catalog-item {
    font-size: 12px;
-   flex-basis: 24%;
+   flex-basis: 25%;
    box-shadow: 0 0 8px 0 #a1a1a1;
    border-radius: 5px;
    padding: 8px;
    margin-bottom: 8px;
+   margin-left: 10px;
+   margin-right: 10px;
 }
 .catalog-item__image {
    max-width: 200px;

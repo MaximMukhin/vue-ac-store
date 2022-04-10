@@ -48,14 +48,14 @@ export default {
 
 <style>
 .main {
-   display: flex;
+/*    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
    max-width: 1280;
    margin: 0 auto;
    font-size: 12px;
-   color: rgb(48, 48, 48);
+   color: rgb(48, 48, 48); */
 }
 
 p {

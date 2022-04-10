@@ -29,19 +29,20 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 .app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   font-weight: normal;
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: #2c3e50;
   margin-top: 20px;
   font-size: 12px;
   max-width: 960px;
   background-color: #e4e7f1;
   margin: auto;
+  border-radius: 5px;  
 }
 </style>
