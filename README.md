@@ -1,4 +1,4 @@
-# ac-store
+# vue-ac-store
 
 ## Project setup
 ```
